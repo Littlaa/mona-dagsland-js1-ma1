@@ -52,7 +52,24 @@ printList(cats);
 
 //Question 8
 function createCats(cats) {
-  for (let i = 0; i < cats.length; i++) {}
+  let html = "";
+
+  for (let i = 0; i < cats.length; i++) {
+    let ageCat = "Unknown";
+
+    if (cats[i].age) {
+      ageCat = cats[i].age;
+    }
+    html += `<div>
+            <h5>${cats[i].name}</h5>
+            <p>Age: ${ageCat}</p>
+            </div>`;
+  }
+  return html;
 }
 
-createCats(cats);
+const newHTML = createCats(cats);
+
+const containerCats = document.querySelector(".cat-container");
+
+containerCats.innerHTML = newHTML;
